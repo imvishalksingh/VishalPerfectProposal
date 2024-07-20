@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Love Proposal</title>
+</head>
+<body>
+  <div class="container">
+    <img src="https://img.freepik.com/free-vector/romantic-love-message-hearts-background_1017-29964.jpg?w=2000" alt="Love">
+    <h1>Will You Be Mine?</h1>
+    <p id="message">You mean everything to me. Will you be mine forever?</p>
+    <button id="acceptButton">Yes, I will</button>
+    <button id="declineButton">I need some time</button>
+    <textarea id="customMessage" placeholder="Enter your custom message..."></textarea>
+    <button onclick="sendCustomMessage()">Send Message</button>
+  </div>
+ 
+  <script>
+  
+
+    function sendCustomMessage() {
+        let parms={
+            message:document.getElementById('customMessage').value
+        }
+      emailjs.send("service_df5jg5c", "template_ah9f9k8",parms).then(function(response) {
+        alert("Message sent successfully!");
+      }, function(error) {
+        alert("Failed to send message: " + JSON.stringify(error));
+      });
+    }
+  </script>
+  <script src="script.js"></script>
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "wZjjQDn_HJciM0tr2",
+      });
+   })();
+</script>
+</body>
+</html>
